@@ -1,0 +1,1506 @@
+@CHARSET "UTF-8";
+
+.floatRight{
+	float:right;
+}
+
+.floatLeft{
+	float:left;
+}
+
+
+/*Quotes开始*/
+.main{
+	width:1180px;
+	padding-top:10px;
+	padding-bottom:20px;
+	margin:0 auto;
+}
+/*datalist*/
+.datalist{
+	width:1000px;
+	height:70px;
+	margin:0 auto;
+}
+
+.datalist .quotelist {
+	width:702px;
+	float:left;
+	height:70px;
+}
+
+.datalist .quotelist .list {
+	border:1px solid #D5D5D5;
+}
+
+.datalist .quotelist .list .list-box {
+	height:60px;
+	padding-left:25px;
+	padding-top:10px;
+	background:#ffffff;
+}
+.datalist .quotelist .list .list-box .DataDl {
+	float:left;
+	font-weight:bold;
+}
+
+.datalist .quotelist .list .list-box .DataDl dt {
+	font-size:14px;
+	height:26px;
+	line-height:26px;
+	color:#747474;
+}
+
+.datalist .quotelist .list .list-box .DataDl dd{
+	color:#ff0000;
+	height:23px;
+	line-height:23px;
+}
+
+.datalist .quotelist .list .list-box .firstDl{
+	width:110px;
+}
+
+.datalist .quotelist .list2{
+	border:1px solid #c43e44;
+}
+
+.datalist .quotelist .list2 .list-box{
+	height:60px;
+	padding-left:25px;
+	padding-top:10px;
+}
+.datalist .quotelist .list2 .list-box .DataDl{
+	float:left;
+	font-weight:bold;
+}
+
+.datalist .quotelist .list2 .list-box .DataDl dt{
+	font-size:14px;
+	height:26px;
+	line-height:26px;
+	color:#ffffff;
+}
+
+.datalist .quotelist .list2 .list-box .DataDl dd{
+	color:#ffffff;
+	height:23px;
+	line-height:23px;
+}
+
+.datalist .quotelist .list2 .list-box .firstDl{
+	width:105px;
+}
+
+.newvalue{
+	width:278px;
+	height:60px;
+	float:right;
+}
+
+.newvalue .solid{
+	border:1px solid #D5D5D5;
+}
+
+
+.newvalue .solid .value-box{
+	height:45px;
+	padding-left:25px;
+	padding-top:25px;
+	background:#ffffff;
+	text-align:left;
+}
+
+
+.newvalue .value-box span{
+	font-weight:700;
+	font-size:22px;
+	/*font-family:"微软雅黑";*/
+}
+
+.newvalue2{
+	width:278px;
+	height:60px;
+	float:right;
+}
+
+.newvalue2 .solid .value-box{
+	height:45px;
+	padding-left:25px;
+	padding-top:25px;
+	text-align:left;
+}
+
+
+.newvalue2 .value-box span{
+	font-weight:700;
+	font-size:22px;
+	/*font-family:"微软雅黑";*/
+}
+
+
+/*realtime-ab*/
+.l-tt-transcation {
+	height:30px;
+	background:#f1f1f1;
+	border-bottom:1px solid #d5d5d5;
+	line-height:30px;
+	text-align:center;
+}
+.li-tt-transcation {
+	width:65px;
+	float:left;
+	font-size:12px;
+}
+.box-ct-transcation {
+	max-height:1860px;
+	overflow-y:auto;
+}
+.l-ct-transcation {
+	
+}
+.li-ct-transcation {
+	height:30px;
+	background:#fff;
+	border-bottom:1px solid #d5d5d5;
+	cursor:pointer;
+	overflow:hidden;
+}
+.li-ct-transcation:hover {
+    background:#ffffaa;
+}
+.hover-ct-transcation {
+	background:#ffffaa;
+}
+.part-ct-transcation {
+	/*width:65px;*/
+	height:30px;
+	float:left;
+	line-height:30px;
+	text-align:center;
+}
+.part-ct-transcation_right {
+    width:60px;
+    height:30px;
+    float:left;
+    line-height:30px;
+    text-align:right;
+}
+.part-ct-transcation_right_little {
+    width:65px;
+    height:30px;
+    float:left;
+    line-height:30px;
+    text-align:right;
+}
+.li-ct-transcation .buyspan {
+	display:block;
+	height:20px;
+	margin-top:5px;
+	background:#689700;
+}
+.li-ct-transcation .sellspan {
+	display:block;
+	height:20px;
+	margin-top:5px;
+	background:#ff0000;
+}
+.box-ct-transcation .buy {
+	color:#689700;
+}
+.box-ct-transcation .sell {
+	color:#ff0000;
+}
+
+.futureMenu{
+	width:127px;
+	float:left;
+	border-right:1px solid #d9d9d9;
+/* 	height:250px; */
+	background: #f8f8f8;
+}
+.futureMenu ul li{
+	text-align: center;
+	height: 38px;
+	line-height: 38px;
+	border-bottom:1px solid #d9d9d9;
+}
+.futureMenu ul .cur{
+	background: #fff;
+	border-left: 3px solid #1987da;
+	border-right: 0px solid #d9d9d9;
+	width: 125px;
+}
+.futureMenu ul li a{
+	text-decoration: none;
+	color: #333;
+/* 	font-weight: bold; */
+	font-size: 14px;
+}
+.futureMenu ul .cur a{
+	color:#1987da;
+}
+.futureMenu ul li a:hover{
+	text-decoration: none;
+	color:#1987da;
+}
+/*realtime*/
+.realtimeboxBody{
+	width:1180px;
+	padding-top:10px;
+	padding-bottom:20px;
+	margin:0 auto;
+}
+.realtimebox{
+	margin-bottom:15px;
+	width:100%;
+	padding-top:5px;
+}
+
+.realtimebox .realtimeleft{
+	float:left;
+	width:840px;
+	/*background:#ffffff;*/
+}
+
+.realtimebox .realtimeleft .solid{
+	
+}
+
+.realtimebox .realtimeleft .solid .box .title{
+	width:100%;
+	height:35px;
+	position:relative;
+}
+
+.realtimebox .realtimeleft .solid .box .title .ttitle{
+	font-size:14px;
+	height:24px;
+	padding-left:5px;
+	padding-top:7px;
+	color:#1487c8;
+	float:left;
+}
+.realtimeboxBody .solid .box .title .titleImg1{
+	height:19px;
+	display:inline-block;
+	position:relative;
+	left:180px;
+	top:8px;
+	cursor:pointer;
+}
+.realtimeboxBody .solid .box .title .titleImg2{
+	width:160px;
+	height:19px;
+	display:inline-block;
+	position:relative;
+	left:82px;
+	top:12px;
+	cursor:pointer;
+}
+
+.realtimebox .realtimeleft .solid .box .title .updateTime{
+	float:right;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	width:345px;
+}
+
+.realtimebox .realtimeleft .solid .box .title .updateTime .div1{
+	float:left;
+	height:35px;
+	padding-left:5px;
+}
+
+.realtimebox .realtimeleft .solid .box .title .updateTime .div1 span{
+	font-size:14px;
+	color:#1487C8;
+}
+
+.realtimebox .realtimeleft .solid .box .title .updateTime .div1 select{
+	width:60px;
+	font-size:14px;
+	height:21px;
+}
+
+.realtimebox .realtimeleft .solid .box .title .updateTime .div2{
+	float:right;
+	height:35px;
+	padding-right:5px;
+}
+
+.realtimebox .realtimeleft .solid .box .real-left{
+	width:405px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeleft .solid .box .real-left table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeleft .solid .box .real-left table.transactionBanner{
+	width: 100%;
+}
+
+.realtimebox .realtimeleft .solid .box .real-left table.transactionBanner th{
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	width:30px;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+.realtimebox .realtimeleft .solid .box .real-left .real-leftBody{
+	max-height:1861px;
+	overflow-y:auto;
+}
+.realtimebox .realtimeleft .solid .box .real-left .real-leftBody table.transactionBody{
+	width: 100%;
+}
+.realtimebox .realtimeleft .solid .box .real-left .real-leftBody table.transactionBody td{ 
+	border-bottom: 1px solid #D5D5D5;
+	width:90px;
+	text-align: center;
+	height:30px;
+}
+
+.realtimebox .realtimeleft .solid .box .real-left .real-leftBody table.transactionBody tbody td span.buyspan{
+	background: none repeat scroll 0 0 #689700;
+	display: inline;
+	float: left;
+	height: 20px;
+	margin-left: -1px;
+	width: 13px;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right{
+	width:405px;
+	float:right;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right table{
+	border-collapse: collapse;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right table.transactionBanner{
+	width: 100%;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right table.transactionBanner th {
+	width:30px;
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right .real-rightBody{
+	max-height:1861px;
+	overflow-y:auto;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right .real-rightBody table.transactionBody{
+	width: 100%;
+}
+.realtimebox .realtimeleft .solid .box .real-right .real-rightBody table.transactionBody td{
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:30px;
+	width:30px;
+}
+
+.realtimebox .realtimeleft .solid .box .real-right .real-rightBody table.transactionBody tbody td span.sellspan{
+	background: none repeat scroll 0 0 #E61F51;
+	display: inline;
+	float: left;
+	height: 20px;
+	margin-left: -1px;
+	width: 13px;
+}
+
+.realtimebox .realtimeright{
+	float:right;
+	width:338px;
+}
+
+.realtimebox .realtimeright .solid{
+}
+
+.realtimebox .realtimeright .solid .box .title{
+	width:100%;
+	height:35px;
+	line-height:35px;
+}
+
+.realtimebox .realtimeright .solid .box .title .ttitle{
+	font-size:14px;
+	height:24px;
+	padding-left:5px;
+/* 	padding-top:10px; */
+	color:#329ddc;
+}
+.realtimebox a{
+	color:#329ddc;
+}
+.realtimebox .realtimeright .solid .box .real{
+	width:338px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeright .solid .box .real table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeright .solid .box .real table.transaction{
+	width: 100%;
+}
+.realtimebox .realtimeright .solid .box .real table.transaction td{ 
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:30px;
+}
+
+.realtimebox .realtimeright .solid .box .real table.transaction th{
+	border-bottom: 1px solid #e1e1e1;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+
+.marketSelect{
+	margin-top:15px;
+}
+
+.marketSelect .selectDate{
+	float:right;
+	margin-right:30px;
+}
+
+.marketSelect .selectDate li{
+	background:url("/okcoin/image/coin.png") no-repeat  left -510px transparent;
+	float:left;
+	width:65px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	border-top:1px solid #c1c3c4;
+	border-left:1px solid #c1c3c4;
+	border-right:1px solid #c1c3c4;
+	margin-right:6px;
+	cursor:pointer;
+
+}
+.marketSelect .selectDate li a{
+	display:inline-block;
+	width:100%;
+	text-decoration:none;
+}
+
+
+.marketSelect .selectDate li.cur{
+	background:none repeat scroll 0 0 #ffffff;
+	float:left;
+	width:65px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	border-top:1px solid #003366;
+	border-left:1px solid #003366;
+	border-right:1px solid #003366;
+	margin-right:6px;
+}
+
+.marketSelect .selectDate li:hover{
+	background:none repeat scroll 0 0 #ffffff;
+	float:left;
+	width:65px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	border-top:1px solid #003366;
+	border-left:1px solid #003366;
+	border-right:1px solid #003366;
+	margin-right:6px;
+}
+
+/****table*****/
+.buysellTitle{
+	border-bottom: 1px solid #C3C1C1;
+    font-size: 14px;
+    margin-bottom:15px;
+}
+/******K线*****/
+.marketImageNew{
+	padding-top:10px;
+	position:relative;
+	height:600px;
+	width:1180px;
+	margin:0 auto;
+}
+
+.marketImageNewc{
+	position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	right:0px;
+	bottom:0px;
+	float:left;
+}
+
+.marketImageflash{
+	padding-top:10px;
+	position:relative;
+	height:460px;
+	width:1180px;
+	margin:0 auto;
+}
+
+a.openfullscreen{
+	background:url("/okcoin/image/new_v1/icon1.png") no-repeat scroll 0 -1308px transparent;
+	position:absolute;
+	right:5px;
+	top:18px;
+	width:15px;
+	height:15px;
+	display:inline-block;
+}
+
+a.closefullscreen{
+	background:url("/okcoin/image/new_v1/icon1.png") no-repeat scroll 0 -1278px transparent;
+	position:absolute;
+	right:10px;
+	top:8px;
+	width:15px;
+	height:15px;
+	display:inline-block;
+}
+
+.maxHeight {
+	height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.changeKlinestyle{
+	font-size:14px;
+	padding-bottom:10px;
+	float: left;
+}
+
+.changeKlinestyle a{
+	color:#444444;
+	margin-left:15px;
+	background: none repeat scroll 0 0 #ffffff;
+    border-radius: 3px;
+    padding: 3px 0px;
+}
+
+.changeKlinestyle a:hover{
+	background: none repeat scroll 0 0 #cbe9f1;
+    border-radius: 3px;
+    padding: 3px 0px;
+    text-decoration: none;
+}
+
+.changeKlinestyle a.cur{
+	 background: none repeat scroll 0 0 #1478C8;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 3px 10px;
+}
+
+.changeKlinestyle a.closeKlineBlock{
+	background:url("/okcoin/image/new_v1/icon1.png") no-repeat scroll 0 -1329px transparent;
+	width:55px;
+	height:15px;
+	display:inline-block;
+	float:right;
+	padding:0px 0px 0px 20px;
+	color:#1478c8;
+}
+
+.changeKlinestyle a.openKlineBlock{
+	background:url("/okcoin/image/new_v1/icon1.png") no-repeat scroll -223px -1337px transparent;
+	width:55px;
+	height:20px;
+	display:inline-block;
+	float:right;
+	padding:0px 0px 0px 20px;
+	color:#1478c8;
+}
+.subtab-do-market {
+	
+}
+.subtab-do-market:after {
+	display:block;
+	content:'';
+	overflow:hidden;
+	height:0;
+	clear:both;
+}
+.l-status-dmsubtab {
+	display:inline-block;
+	height:30px;
+	float:right;
+}
+.li-status-dmsubtab {
+	float:left;
+	display:inline-block;
+	margin-left:14px;
+}
+
+.klineImage{
+	width:1180px;
+	margin:0 auto;
+}
+.newKlineImage{
+	width:100%;
+	margin:0 auto;
+/* 	background:#000000; */
+	padding-bottom:10px;
+}
+.changeKlineBackgound{
+	background:#000000;
+	width:100%;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+/*****行情交易*****/
+.realtimebox .realtimeleft .marketTransaction{
+	width:702px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody{
+	background: none repeat scroll 0 0 #FFFFFF;
+    width: 420px;
+}
+.realtimebox .realtimeleft .marketTransaction .transactionbody .title{
+	height:25px;
+	line-height:25px;
+	padding-left:10px;
+	font-size:14px;
+	font-weight:700;
+	margin-bottom:10px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .borderLeftRed{
+	border-left:3px solid #FF0000;
+	color:#FF0000;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .borderLeftGreen{
+	border-left:3px solid #068814;
+	color:#068814;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody{
+/* 	 border: 1px solid #E1E1E1; */
+	 width: 420px;
+	 max-height:410px;
+	 min-height:320px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody .freetitle{
+	padding:15px 0px 0px 10px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul{
+	margin:15px auto 15px;;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li{
+	line-height:35px;
+	height:35px;
+	padding-left:9px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buytext{
+/* 	text-align:center;	 */
+	padding-top:7px;
+	padding-left: 40px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buytext span{
+	text-align:center;	
+	display:inline-block;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buytext span.buyprice{
+	width:80px;	
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buytext span.buynum{
+	width:80px;
+	padding-left:26px;	
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buytext span.summoney{
+	width:80px;
+	padding-left:26px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput{
+	position:relative;
+/* 	text-align:center; */
+	padding-left: 40px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput span{
+	display:inline-block;
+	text-align:center;
+	width:85px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput span.chen {
+    background: url("/okcoin/image/coin.png") no-repeat scroll right -983px transparent;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 14px;
+    width: 20px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput span.equal {
+    background: url("/okcoin/image/coin.png") no-repeat scroll right -1020px transparent;
+    height: 20px;
+    left: 235px;
+    position: absolute;
+    top: 14px;
+    width: 20px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput span.buyinputnum{
+	padding-left:22px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.buyinput span.inputsummoney{
+	padding-left:22px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li input.buysellinput{
+	border:1px solid #e1e1e1;
+	line-height:35px;
+	height:35px;
+	width:85px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li span.orderProportion{
+	float:right;
+	padding-right:10px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li span a{
+	line-height:17px;
+}
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li a.pleaseSign{
+	color:#000080;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li span.finbutton{
+	display: inline-block;
+    width: 18px;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    background:url("/okcoin/image/new_v1/icon.png") no-repeat  0 -90px transparent;
+    height:19px;
+    margin-left: 10px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li span.finbuttonenglish{
+	display: inline-block;
+    width: 18px;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    background:url("/okcoin/image/new_v1/iconenglish.png") no-repeat  transparent;
+    height:19px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.inputStyle{
+	padding-top:10px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.inputStyle1{
+	padding-left:0px;
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.inputStyle  .word{
+	display:inline-block;
+	text-align:right;
+/* 	width:80px; */
+}
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.inputStyle input{
+	height:30px;
+	line-height:30px;
+	width: 330px;
+}
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.inputStyle span input{
+	width: 255px;
+}
+.marketButtonGreen {
+    background: none repeat scroll 0 0 #068814;
+    border:1px solid #068814;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 32px;
+    text-align: center;
+    width: 170px;
+}
+.marketButtonGreen:hover{
+	background: none repeat scroll 0 0 #068814;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.marketButtonRed {
+    background: none repeat scroll 0 0 #E31F26;
+    border:1px solid #E31F26;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 32px;
+    text-align: center;
+    width: 170px;
+}
+.marketButtonRed:hover{
+	background: none repeat scroll 0 0 #E31F26;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+/******变*****/
+.realtimebox .realtimeright .solid .box .realBefore{
+	width:338px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeright .solid .box .realAfter{
+	width:278px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeright .solid .box .tenHeightBefore{
+	height:340px;
+}
+
+.realtimebox .realtimeright .solid .box .tenHeightAfter{
+	height:320px;
+}
+
+.realtimebox .realtimeright .solid .box .realBefore table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeright .solid .box .realBefore table.transaction{
+	width: 100%;
+}
+.realtimebox .realtimeright .solid .box .realBefore table.transaction td{ 
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:30px;
+}
+
+.realtimebox .realtimeright .solid .box .realBefore table.transaction th{
+	border-bottom: 1px solid #e1e1e1;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+
+.realtimebox .realtimeright .solid .box .realAfter table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeright .solid .box .realAfter table.transaction{
+	width: 100%;
+}
+.realtimebox .realtimeright .solid .box .realAfter table.transaction td{ 
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:28px;
+}
+
+.realtimebox .realtimeright .solid .box .realAfter table.transaction th{
+	border-bottom: 1px solid #e1e1e1;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+
+/******bian2*****/
+.realtimebox .realtimeright .solid .box .realMarketBefore{
+	width:278px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeright .solid .box .realMarketAfter{
+	width:278px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #e1e1e1;
+}
+
+.realtimebox .realtimeright .solid .box .tenHeightMarketBefore{
+	height:330px;
+}
+
+.realtimebox .realtimeright .solid .box .tenHeightMarketAfter{
+	height:320px;
+}
+
+.realtimebox .realtimeright .solid .box .realMarketBefore table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeright .solid .box .realMarketBefore table.transaction{
+	width: 100%;
+}
+.realtimebox .realtimeright .solid .box .realMarketBefore table.transaction td{ 
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:28px;
+}
+
+.realtimebox .realtimeright .solid .box .realMarketBefore table.transaction th{
+	border-bottom: 1px solid #e1e1e1;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 35px;
+	line-height: 35px;
+	color:#333333;
+}
+
+.realtimebox .realtimeright .solid .box .realMarketAfter table{
+	border-collapse: collapse;
+}
+.realtimebox .realtimeright .solid .box .realMarketAfter table.transaction{
+	width: 100%;
+}
+.realtimebox .realtimeright .solid .box .realMarketAfter table.transaction td{ 
+	border-bottom: 1px solid #D5D5D5;
+	text-align: center;
+	height:28px;
+}
+
+.realtimebox .realtimeright .solid .box .realMarketAfter table.transaction th{
+	border-bottom: 1px solid #e1e1e1;
+	text-align: center;
+	background: none repeat scroll 0 0 #f1f1f1;
+	font-weight: normal;
+	height: 30px;
+	line-height: 30px;
+	color:#333333;
+}
+
+/****future****/
+/******/
+.futureMarkBody{
+	margin:20px auto;
+	width:1102px;
+}
+
+.futureMarkBody table th{
+	height:50px;
+	width:366px;
+	background:#329ddc;
+	text-align:center;
+	color:#ffffff;
+	font-size:16px;
+}
+.futureMarkBody table{
+	 border:none;
+	  cellspacing:collapse;  
+}
+.futureMarkBody table .borderRight{
+	border-right:1px solid #ffffff;
+}
+.futureMarkBody table th.borderleft{
+	border-left:1px solid #329ddc;
+}
+.futureMarkBody table .borderLeft{
+	border-left:1px solid #e1e1e1;
+}
+.futureMarkBody table td{
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:14px;
+	border-right:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+}
+
+.futureDataList{
+    margin: 0px auto 5px;
+    width: 1180px;
+}
+
+.futureDataList table{
+	border-collapse:separate;
+}
+
+.futureDataList th{
+	color:#444444;
+	border-right:1px solid #e3e3e3;
+	border-top:1px solid #e3e3e3;
+	text-align:center;
+	font-weight:normal;
+	height:25px;
+}
+.futureDataList th.bg{
+	background:#1478c8;
+	color:#ffffff;
+}
+.futureDataList th.bg1{
+	background:#eeeeee;
+}
+.futureDataList td{
+	color:#444444;
+	border-right:1px solid #e3e3e3;
+	border-top:1px solid #e3e3e3;
+	text-align:center;
+	height:21px;
+}
+.futureDataList td.bg{
+	background:#eeeeee;
+}
+.futureDataList td.bottomBorder{
+	border-bottom:1px solid #e3e3e3;
+}
+.futureDataList .bottomLeft{
+	border-left:1px solid #e3e3e3;
+}
+.futureDataList span.coinColor{
+	color:#888888;
+}
+
+/***合约指数表格***/
+.futureIndexLineDashed{
+	border:1px dashed #d9d9d9;
+	margin:20px auto 10px;
+	width:1180px;
+}
+.futureIndexLineSolid{
+	border:1px solid #d9d9d9;
+	margin:5px auto 25px;
+	width:1180px;
+}
+.futureIndexTitle{
+	font-size:16px;
+	color:#329ddc;
+	/*width:980px;*/
+	margin:20px auto;
+}
+.futureIndexTitle .timeStyle{
+	float:right;
+}
+.futureIndexTitle .timeStyle a{
+	padding:0px 10px;
+	border-radius:3px;
+}
+.futureIndexTitle .timeStyle a.cur{
+	background:#329ddc;
+	color:#ffffff;
+}
+.futureIndexTitle .timeStyle a:hover{
+	text-decoration:none;
+}
+.futureIndexTable{
+	font-size:14px;
+	width:1180px;
+	margin:10px auto;
+}
+.futureIndexTable th{
+	height:40px;
+	background:#329ddc;
+	width:165px;
+	color:#ffffff;
+}
+.futureIndexTable th.rightDis{
+	border-right:1px solid #ffffff;
+}
+.futureIndexTable td{
+	border-right:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+	height:32px;
+	text-align:center;
+}
+.futureIndexTable td.leftDis{
+	border-left:1px solid #e1e1e1;
+}
+.futureIndexTable td.bg{
+	background:#f5f8fa;
+}
+.futureIndexTable td.topThree{
+	color:#f16901;
+}
+.futureIndexTable td.ranking{
+	width:62px;
+}
+.futureIndexTable td.holden{
+	width:102px;
+}
+.futureIndexTable td.title{
+	font-weight:700;
+}
+
+/*******行情对比******/
+.marketList{
+	
+}
+.marketList table{
+	border-top:1px solid #d9d9d9;
+	border-left:1px solid #d9d9d9;
+}
+.marketList td{
+	height:36px;
+	line-height:36px;
+	border-bottom:1px solid #d9d9d9;
+	border-right:1px solid #d9d9d9;
+	padding:0px 20px;
+}
+.marketList td.coinTitle{
+	font-size:14px;
+	font-weight:700;
+	background:#f5f6f6;
+	text-align:left;
+	color:#1478c8;
+	padding-left:20px;
+}
+.marketList td .left{
+	float:left;
+	color:#6685ae;
+}
+.marketList td .right{
+	float:right;
+}
+.marketList td .rightImgUp{
+	background:url("/okcoin/image/new_v1/icon3.png") no-repeat scroll 0px 10px transparent;
+	display:inline-block;
+	height:30px;
+	width:10px;
+    float:right;
+}
+.marketList td .rightImgDown{
+	background:url("/okcoin/image/new_v1/icon3.png") no-repeat scroll -192px 10px transparent;
+	display:inline-block;
+	height:30px;
+	width:10px;
+    float:right;
+}
+.marketList td span.chPrice{
+	display:inline-block;
+	width:60px;
+	text-align:right;
+}
+.marketList td span.usdPrice{
+	display:inline-block;
+	width:60px;
+	text-align:left;
+}
+
+/* 未登录前banner */
+.new_bannerContentBg{
+	background: url("/okcoin/image/kline/bg.png") repeat scroll center transparent;
+	width: 100%;
+	height: 139px;
+}
+.new_bannerContent{
+	height: 139px;
+    margin: 0 auto;
+    width: 1180px;
+}
+.new_bannerContent .loginWord {
+	padding-top:15px;
+	text-align:right;
+	position:relative;
+	z-index:10;
+}
+.new_bannerContent .loginWord a{
+	display:inline-block;
+	color:#828c99;
+	line-height:32px;
+}
+.new_bannerContent .loginWord > a{
+	padding-left:15px;
+}
+.new_bannerContent .loginWord a.signUpMessage {
+    border: 2px solid #fff;
+    color: #fff;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    min-width: 42px;
+    padding: 0 10px;
+    text-align: center;
+    width: auto;
+    margin-left:12px;
+}
+.new_bannerContent .loginWord a.signUpMessage:hover {
+    background: #fff none repeat scroll 0 0;
+    color: #1f1b35;
+    text-decoration: none;
+}
+.new_bannerContent .navList{
+	position:relative;
+	top:-19px;
+}
+.new_bannerContent .navList .logo{
+	float:left;
+}
+.new_bannerContent .navList .chinaweb{
+	color:#fff;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	width: 57px;
+	margin-top:20px;
+	margin-left:10px;
+}
+.new_bannerContent .navList .menu{
+	float:right;
+	padding-top:20px;
+}
+.new_bannerContent .navList .menu a{
+	display: inline-block;
+	color:#fff;
+	font-size: 14px;
+	font-weight: 700;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 16.3px;
+}
+.new_bannerContent .navList .menu a.cur{
+	color: #0096e0;
+}
+.new_bannerContent .navList .menu a:hover{
+	color: #0096e0;
+	text-decoration:none;
+}
+
+
+
+.loanContainer {
+	width: 500px;
+	height: 40px;
+	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.loanWrapper {
+	border-bottom: 1px solid #e6e6e6;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+}
+.loanWrapper > div {
+	display: inline-block;
+}
+.loanWrapper .loanSwitch {
+	/*height: 100%;*/
+	position: relative;
+}
+.loanWrapper .loanSwitch span {
+	line-height: 38px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.loanWrapper .loanSwitch span.highlight {
+	color: #ff6e00;
+}
+.loanWrapper .loanSwitch span.underline {
+	border-bottom: 1px dashed #e6e6e6;
+}
+.loanWrapper .loanSwitch div {
+	display: inline-block;
+	vertical-align: middle;
+	width: 36px;
+	height: 16px;
+	cursor: pointer;
+	margin-left: 5px;
+	background: url('../../image/trade/icon_new.png') no-repeat 0 -2125px;
+}
+.loanWrapper .loanSwitch div.off-deep {
+	background: url('../../image/trade/icon_new.png') no-repeat 0 -2151px;
+}
+.loanWrapper .loanSwitch div.on {
+	background: url('../../image/trade/icon_new.png') no-repeat -224px -2125px;
+}
+
+.loanWrapper .loanAvailable {
+	margin-left: 81px;
+}
+.loanWrapper .loanAvailable span {
+	vertical-align: middle;
+	font-size: 14px;
+}
+.loanWrapper .loanAvailable .number {
+	color: #cccccc;
+}
+.loanWrapper .loanAvailable .number.active {
+	color: #068814;
+}
+
+.loanWrapper .loaned {
+	margin-left: 50px;
+	display: none;
+}
+.loanWrapper .loaned.active {
+	display: inline-block;
+}
+.loanWrapper .loaned span {
+	vertical-align: middle;
+	font-size: 14px;
+}
+.loanWrapper .loaned .number {
+	color: #db3036;
+}
+.loanWrapper .loaned a {
+	display: inline-block;
+	vertical-align: middle;
+	width: 32px;
+	height: 16px;
+	-ms-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #f5f7fa;
+	color: #1987da;
+	font-size: 12px;
+	line-height: 16px;
+	padding: 1px 2px;
+	text-align: center;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+/* market */
+
+.realtimebox .realtimeleft .marketTransaction .transactionbody .mainBody ul li.loanLi {
+	height: 60px;
+	margin-bottom: 3px;
+}
+
+.loanContainer.market {
+	border: none;
+	height: 60px;
+	width: 400px;
+	position: relative;
+}
+
+.loanContainer.market .loanWrapper {
+	border-bottom: none;
+	position: relative;
+}
+
+.loanContainer.market .loanWrapper .loanSwitch > span {
+	cursor: default;
+}
+
+.loanContainer.market .loanWrapper .loanSwitch .bubbleCue {
+	left: 0;
+	bottom: 38px;
+}
+
+.loanContainer.market .loanAvailable {
+	margin-left: 0;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+}
+
+.loanContainer.market .loanAvailable > span,
+.loanContainer.market .loaned > span {
+	font-size: 12px;
+}
+
+.loanContainer.market .loaned {
+	position: absolute;
+	bottom: 2px;
+	right: 10px;
+	height: 20px;
+	line-height: 20px;
+}
+.loanContainer.market .loaned.active {
+	display: block;
+}
+
+.usingTips {
+	display: inline-block;
+	width: 352px;
+	background: #fcf6ed;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	font-size: 12px;
+}
+.usingTips em {
+	color: #ff6e00;
+}
+
+.usingTips.market {
+	width: 253px;
+	display: block;
+	margin-left: 61px;
+	margin-top: 25px;
+	text-align: left;
+}
+
+/*****友情链接*****/
+.index_friendLink{
+	line-height:24px;
+	background: #2e3136;
+	color:#6d6f73;
+	padding-bottom:30px;
+	margin-top: -15px;
+}
+
+.index_friendLink .inner_block{
+	margin:0px auto;
+	width:1180px;
+	text-align: left;
+}
+
+.index_friendLink .inner_block a{
+	color:#6d6f73;
+	margin-left:17px;
+}
+
+.index_friendLink .inner_block a:hover{
+	color:#ffffff;
+}

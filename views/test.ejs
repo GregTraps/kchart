@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="/javascripts/buytrades.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var islogin = false;
+    var site_flag = 1;
+    var if_offline=1;
+</script>
+<script type="text/javascript">
+
+    function changeSiteTypeSelectClassOver(){
+        document.getElementById("siteTypeSelect").className="siteTypeSelectUr";
+    }
+    function changeSiteTypeSelectClassOut(){
+        document.getElementById("siteTypeSelect").className="siteTypeSelect";
+    }
+    // 资金划转
+    function showFundTransferPop() {
+        transferInit();
+    }
+    function closeFundTransferPop() {
+        document.getElementById("fundTransferPop").style.display="none";
+        dialogBoxHidden();
+        jQuery("#currencySelect").html("BTC");
+        document.getElementById("currencySelect").attributes["codeValue"].value=0;
+        jQuery("#outAccountSelect").html("现货交易账户");
+        document.getElementById("outAccountSelect").attributes["codeValue"].value=1;
+        jQuery("#intAccountSelect").html("");
+        document.getElementById("intAccountSelect").attributes["codeValue"].value=-1;
+        //location.reload([true]);
+    }
+    function gotoMoni() {
+        var loginSuccess;
+        jQuery.ajax({
+            url: '/user/loginMoniUser.do',
+            async: false,
+            success: function(data) {
+                var result = eval('(' + data + ')');
+                if (result != null && result.resultCode === 1) {
+                    loginSuccess = true;
+                }
+            }
+        });
+
+        if (loginSuccess) {
+            var link = document.getElementById("jumpA");
+            link.click();
+        } else {
+            location.href = '/user/login.do';
+        }
+    }
+    (function () {
+        var isLogin = "0";
+        isLogin = +isLogin;
+        var BASE_URL_AJAX = location.protocol + '//'+ location.host + '/v2';
+        if (location.host.indexOf("local") > -1) {
+            BASE_URL_AJAX = 'http://localtest.intra.okcoin' + (site_flag == 1 ? '.cn' : '.com') + '/v2';
+        }
+        var isNotInOldPage = "1";
+        isNotInOldPage = +isNotInOldPage;
+        if (isLogin) {
+            jQuery.ajax({
+                url: BASE_URL_AJAX + '/accounts',
+                type: 'GET',
+                data: {},
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (response) {
+                    if (!response) {
+                        return;
+                    }
+                    if (response.code === 0) {
+                        var d = response.data;
+                        jQuery("#availableCny").html(DownTruncation(d.currencies[3].available, 2));
+                        jQuery("#availableEtc").html(DownTruncation(d.currencies[4].available, 4));
+                        jQuery("#frozenCny").html(DownTruncation(d.currencies[3].hold, 2));
+                        jQuery("#frozenEtc").html(DownTruncation(d.currencies[4].hold, 4));
+
+                        if (isNotInOldPage) {
+                            jQuery(".netAssets-v2").html(DownTruncation(d.netAssets < 0 ? 0 : d.netAssets, 2));
+                            jQuery(".totalAssets-v2").html(DownTruncation(d.totalAssets, 2));
+                        }
+
+                        // 表格中的四个字
+                        jQuery(".tradeAvailableCny").html(DownTruncation(d.currencies[3].available, 2));
+                        jQuery(".tradeFrozenCny").html(DownTruncation(d.currencies[3].hold, 2));
+                        jQuery("#asubtotalCny").html(DownTruncation(+d.currencies[3].available + +d.currencies[3].hold, 2));
+                        jQuery("#borrowCny").html(DownTruncation(d.currencies[3].lended, 2));
+
+                        jQuery("#tradeAvailableEtc").html(DownTruncation(d.currencies[4].available, 4));
+                        jQuery("#tradeFrozenEtc").html(DownTruncation(d.currencies[4].hold, 4));
+                        jQuery("#asubtotalEtc").html(DownTruncation(+d.currencies[4].available + +d.currencies[4].hold, 4));
+                        jQuery("#borrowEtc").html(DownTruncation(d.currencies[4].lended, 4));
+                    } else {
+                        console.log(response.msg);
+                    }
+                },
+                error: function (xhr, textStatus, err) {
+                    console.log(textStatus, err);
+                }
+            });
+        }
+
+        function CommaFormatted(s, n) {
+            var k = n;
+            n = n > 0 && n <= 20 ? n : 2;
+            s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+            var l = s.split(".")[0].split("").reverse(), r = s.split(".")[1];
+            t = "";
+            for (var i = 0; i < l.length; i++) {
+                t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+            }
+            var result =t.split("").reverse().join("") + "." + r;
+            if(Number(s)<0){
+                if(result!=null&&result.substr(0,2)=="-,"){
+                    result=result.substr(2,result.length);
+                    result="-"+result;
+                }
+            }
+            if(k==0){
+                return result.split(".")[0];
+            }
+            return result;
+        }
+        function floor(value,scale){
+            var sca=Math.pow(10, scale);
+            var val=accMul(value,sca);
+            val=Math.floor(val);
+            return val/sca;
+        }
+        function accMul(arg1,arg2) {
+            var m=0,s1=arg1.toString(),s2=arg2.toString();
+            try{m+=s1.split(".")[1].length;}catch(e){}
+            try{m+=s2.split(".")[1].length;}catch(e){}
+            return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m);
+        }
+        function DownTruncation (val, number) {
+            return CommaFormatted(floor(val, number), number);
+        }
+    })();
+
+</script>
+
+<script type="text/javascript">
+    function iframe_onload() {
+        if(window.loadKline_iframe==undefined) {
+            setTimeout(iframe_onload,200);
+        }else {
+            loadKline_iframe();
+        }
+    }
+</script>
+
+
+
+<div class="main" id="main" style="padding-bottom:0px;position:relative;">
+    <div class="buysellTitle" id="buysellTitle">
+        <div class="selecttab1">
+            <ul class="selecttab-box1">
+                <li class="cur">
+                    <a class="otherBoxTitle" href="https://www.okcoin.cn/market-btc.html" style="">BTC K线</a>
+                </li>
+
+                <li class="">
+                    <a class="otherBoxTitle" href="https://www.okcoin.cn/market-ltc.html" style="">LTC K线</a>
+                </li>
+
+                <li class="">
+                    <a class="otherBoxTitle" href="https://www.okcoin.cn/market-eth.html" style="">ETH K线</a>
+                </li>
+                <li>
+                    <a class="otherBoxTitle" href="https://www.okcoin.cn/spot/market.do" style="">ETC K线</a>
+                </li>
+
+                <li>
+                    <a class="otherBoxTitle" href="https://www.okcoin.cn/marketList.html" style="">行情对比</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 	K线样式选择 -->
+    <div class="subtab-do-market">
+        <ul class="l-status-dmsubtab">
+            <li class="li-status-dmsubtab">
+                <span style="font-size:14px;">K线: </span>
+                <select id="openKlineBlockSelect" onchange="javascript:openTradeBlock(this,2);" onmouseover="this.style.cursor=&#39;pointer&#39;" style="width:100px;font-size:14px;margin-right:2px;border:1px solid #d5d5d5;;">
+                    <option value="0">显示K线</option>
+                    <option value="1">隐藏K线</option>
+                </select>
+            </li>
+            <li class="li-status-dmsubtab">
+                <span style="font-size:14px;">交易: </span>
+                <select id="openTradeBlockSelect" onchange="javascript:openTradeBlock(this,1);" onmouseover="this.style.cursor=&#39;pointer&#39;" style="width:100px;font-size:14px;margin-right:2px;border:1px solid #d5d5d5;;">
+                    <option value="0">显示交易</option>
+                    <option value="1">隐藏交易</option>
+                </select>
+            </li>
+        </ul>
+
+        <div class="changeKlinestyle" id="changeKlinestyle">
+            <span>选择K线样式: </span>
+            <select onchange="klinestylechange(this.value)" onmouseover="this.style.cursor=&#39;pointer&#39;" style="width:110px;font-size:14px;margin-right:2px;border:1px solid #d5d5d5;">
+                <option value="1">简易K线</option>
+
+                <option value="0">普通版K线</option>
+
+
+                <option value="4">TradingView</option>
+                <option selected="" value="5">专业版K线</option>
+            </select>
+        </div>
+
+    </div>
+    <div id="guessMarketEnter" style="position: absolute;right: -120px;display: none;">
+        <a href="https://www.okcoin.cn/about/guessMarketPage.do" target="_blank">
+            <img width="108" height="130" src="../ok_files/guess_trade_enter.png">
+        </a>
+    </div>
+</div>
+
+<!-- K线或者盘口图 -->
+
+<div id="klineImage" class="klineImage">
+
+
+    <div class="kLineBody" id="kLineBody" style="width:100%; height: 500px">
+        <script type="text/javascript">
+            function iframe_onload() {
+                if(window.loadKline_iframe==undefined) {
+                    setTimeout(iframe_onload,200);
+                }else {
+                    loadKline_iframe();
+                }
+            }
+        </script>
+        <div class="marketImageNew" id="marketImageNew">
+            <iframe id="kline_iframe" onload="javascript:iframe_onload();" style="border:0; width:100%;height:500px;" src="/fullKline"></iframe>
+            <a class="openfullscreen" id="openfullscreen" href="javascript:void(0)" onclick="javascript:klineFullScreenOpen()" title="全屏" style="display:block;"></a>
+            <a class="closefullscreen" id="closefullscreen" href="javascript:void(0)" onclick="javascript:klineFullScreenClose()" title="退出全屏" style="display:none"></a>
+        </div>
+    </div>
+    <div style="display: none"><!-- 隐藏域 赋值操作-->
+        <span id="klineDepth"></span>
+    </div>
+
+</div>
+
+
+
+
+<input type="hidden" id="tradeType" value="0">
+<input type="hidden" id="symbol" value="0">
+<input type="hidden" id="isopen" value="0">
+
+<input id="minibtctradeamountbuy" type="hidden" value="0.01">
+<input id="minibtctradeamountsell" type="hidden" value="0.01">
+<input id="miniltctradeamountbuy" type="hidden" value="0.1">
+<input id="miniltctradeamountsell" type="hidden" value="0.1">
+<input type="hidden" id="domain_siteflag" value="1">
+<input type="hidden" id="datePickerLanguageType" value="en">
+<input type="hidden" id="__pre_url" value="https://img.bafang.com/v_20170717002/okcoin">
+
+
+
+<script type="text/javascript" src="/javascripts/language_zh_CN.js"></script>
+
+<script type="text/javascript" src="/javascripts/language.js"></script>
+<script type="text/javascript" src="/javascripts/errorEnum.js"></script>
+
+<script type="text/javascript" src="/javascripts/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="/javascripts/jquery-ui-1.9.0.custom.js"></script>
+<script type="text/javascript" src="/javascripts/coincommon.js"></script>
+
+
+
+
+
+
+<!--<script type="text/javascript">-->
+    <!--jQuery(document).ready(function(){-->
+        <!--//防止Clickjacking攻击-->
+        <!--if(window!=window.parent){-->
+            <!--var matches=/\/\/([^\/]+)\//.exec(document.referrer);-->
+            <!--if(matches&&matches[1]&&[location.host,'http://local.okcoin.com/','https://www.okcoin.com/','http://localtest.okcoin.com/','http://local.okcoin.cn/','https://www.okcoin.cn/','http://localtest.okcoin.cn/'].indexOf(matches[1])!=-1){-->
+            <!--}else{-->
+                <!--alert("这是个仿冒OKCoin的钓鱼网站，该网站会可能会盗取用户的账户密码等私人信息，将回到OKCoin官方网站,请注意域名变化！");-->
+                <!--window.parent.location=location ;-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+    <!--var footsetFlag = document.getElementById("footsetFlag").value;-->
+    <!--var chartLanguageType = jQuery("#footLanguageType").val();-->
+<!--</script>-->
+
+
+
+<div class="okcoinPop" id="fastRepayWin" style="display:none;">
+    <div class="dialog_content" id="dialog_content_fundTransfer" style="width: 550px;">
+        <div class="dialog_title" id="dialog_title_fundTransfer"> <span id="titleInfo">还款</span>
+            <a href="javascript:void(0);" onclick="closeRepayWin();" class="dialog_closed" title="关闭"></a>
+        </div>
+        <div class="dialog_body" style="padding-right:14px;">
+            <ul class="fundTransferUl clear">
+                <li>
+                    <span class="setLeft">当前可用：</span>
+                    <span class="setRight green" id="availableMoney"></span>
+                </li>
+                <li>
+                    <span class="setLeft">当前欠款：</span>
+                    <span class="setRight fred" id="borrowMoney"></span>
+                </li>
+                <li>
+                    <span class="setLeft">还款金额：</span>
+                    <input id="repayNumberInput" class="fundTransferNumberInput" placeholder="" type="text" onkeyup="">
+                    <label style="cursor: pointer;">
+                        <input type="checkbox" id="repayAllBorrow" style="margin: 0px 10px;">归还全部欠款
+                    </label>
+                </li>
+            </ul>
+            <input type="hidden" id="lendSymbol">
+            <div class="transferErrorTips clear" id="repayMessage" style="margin-left: 100px;width: 265px;"></div>
+
+            <input class="buttonBlue" type="button" onclick="fastRepay()" id="repayBorrowBth" value="还款" style="margin-left: 100px;width: 225px;height: 35px;">
+            <p style="margin-left: 100px;width: 225px;margin-top: 20px;"><a id="redirectA" href="https://www.okcoin.cn/market-btc.html">查看借款详情</a></p>
+            <p style="height: 30px;"></p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/javascripts/highstock.js"></script>
+<script type="text/javascript" src="/javascripts/exporting.js"></script>
+<script type="text/javascript" src="/javascripts/kline.js"></script>
+<script type="text/javascript" src="/javascripts/klineNew.js"></script>
+<script type="text/javascript" src="/javascripts/selltrades.js"></script>
+<script type="text/javascript" src="/javascripts/buytrades.js"></script>
+<script type="text/javascript" src="/javascripts/dataKline.js"></script>
+<script type="text/javascript" src="/javascripts/echarts.min.js"></script>
+<script type="text/javascript" src="/javascripts/pushmarket.js"></script>
+
+
+<script type="text/javascript" src="/javascripts/pushUtil.js"></script>
+
+<script type="text/javascript" src="/javascripts/Calculate.js"></script>
+<script type="text/javascript" src="/javascripts/Prototype.js"></script>
+<script type="text/javascript" src="/javascripts/common.constant.js"></script>
+<script type="text/javascript" src="/javascripts/common.trade.js"></script>
+<script type="text/javascript" src="/javascripts/websocket.js"></script>
+<script type="text/javascript" src="/javascripts/notify.js"></script>
+<script type="text/javascript" src="/javascripts/market.js"></script>
+<script type="text/javascript">
+    function loadKline_iframe(){
+        var symbol = "0";
+        var languageType = jQuery("#languageType").val();//中英文切换
+        if(!jQuery("#kline_iframe")[0].contentWindow._set_current_language){
+            setTimeout(loadKline_iframe,200);
+            return;
+        }
+//        if(languageType==0){
+            jQuery("#kline_iframe")[0].contentWindow._set_current_language("zh-cn"); // "zh-cn" "en-us" "zh-tw" //中英文切换
+//        }else{
+//            jQuery("#kline_iframe")[0].contentWindow._set_current_language("en-us");
+//        }
+        jQuery("#kline_iframe")[0].contentWindow._setCaptureMouseWheelDirectly(false);
+        jQuery("#kline_iframe")[0].contentWindow._set_current_url("http://localhost:3200/test/klineData");//url
+        jQuery("#kline_iframe")[0].contentWindow._set_current_coin(Number(symbol)==0?0:3);//现货BTC
+        jQuery("#kline_iframe")[0].contentWindow._set_money_type("usd"); // "usd" 'cny'现货不需要币种转换
+        jQuery("#kline_iframe")[0].contentWindow.onPushingStarted(PushFromEth);
+    }
+</script>
+
+</body>
+</html>
