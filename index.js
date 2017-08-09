@@ -61,6 +61,84 @@ var tickHelper = {
     }
 };
 
+var huobiHelper = {
+    'market.btccny.kline.1min' : {
+        'symbol':'btccny',
+        'period':'1min'
+    },
+    'market.btccny.kline.5min' : {
+        'symbol':'btccny',
+        'period':'5min'
+    },
+    'market.btccny.kline.15min' : {
+        'symbol':'btccny',
+        'period':'15min'
+    },
+    'market.btccny.kline.30min' : {
+        'symbol':'btccny',
+        'period':'30min'
+    },
+    'market.btccny.kline.60min' : {
+        'symbol':'btccny',
+        'period':'60min'
+    },
+    'market.btccny.kline.1day' : {
+        'symbol':'btccny',
+        'period':'1day'
+    },
+    'market.btccny.kline.1mon' : {
+        'symbol':'btccny',
+        'period':'1mon'
+    },
+    'market.btccny.kline.1week' : {
+        'symbol':'btccny',
+        'period':'1week'
+    },
+    'market.btccny.kline.1year' : {
+        'symbol':'btccny',
+        'period':'1year'
+    },
+    'market.ethcny.kline.1min' : {
+        'symbol':'ethcny',
+        'period':'1min'
+    },
+    'market.ethcny.kline.5min' : {
+        'symbol':'ethcny',
+        'period':'5min'
+    },
+    'market.ethcny.kline.15min' : {
+        'symbol':'ethcny',
+        'period':'15min'
+    },
+    'market.ethcny.kline.30min' : {
+        'symbol':'ethcny',
+        'period':'30min'
+    },
+    'market.ethcny.kline.60min' : {
+        'symbol':'ethcny',
+        'period':'60min'
+    },
+    'market.ethcny.kline.1day' : {
+        'symbol':'ethcny',
+        'period':'1day'
+    },
+    'market.ethcny.kline.1mon' : {
+        'symbol':'ethcny',
+        'period':'1mon'
+    },
+    'market.ethcny.kline.1week' : {
+        'symbol':'ethcny',
+        'period':'1week'
+    },
+    'market.ethcny.kline.1year' : {
+        'symbol':'ethcny',
+        'period':'1year'
+    }
+};
+var wsPush = {};
+
+
+
 //websocket请求火币
 const WebSocket = require('ws');
 //gzip
@@ -72,109 +150,158 @@ const socketBtc = new WebSocket('wss://api.huobi.com/ws'); //如果symbol = 'btc
 socketEth.binaryType = 'arraybuffer';
 socketBtc.binaryType = 'arraybuffer';
 socketEth.onopen = function (event) {
-    console.log('WebSocket connect at time: ' + new Date());
+    console.log('WebSocket ETH connect at time: ' + new Date());
     //1min, 5min, 15min, 30min, 60min, 1day, 1mon, 1week, 1year
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.1min','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.5min','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.15min','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.30min','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.60min','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.1day','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.1mon','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.1week','id': '1min ' + new Date()}));
-    socketEth.send(JSON.stringify({'sub': 'market.ethcny.kline.1year','id': '1min ' + new Date()}));
+    for (var channel in huobiHelper) {
+        if (huobiHelper[channel].symbol === 'ethcny') {
+            socketEth.send(JSON.stringify({'sub': channel,'id': huobiHelper[channel].period+' ' + new Date()}));
+        }
+    }
 };
 socketBtc.onopen = function (event) {
-    console.log('WebSocket connect at time: ' + new Date());
+    console.log('WebSocket BTC connect at time: ' + new Date());
     //1min, 5min, 15min, 30min, 60min, 1day, 1mon, 1week, 1year
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1min','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.5min','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.15min','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.30min','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.60min','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1day','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1mon','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1week','id': '1min ' + new Date()}));
-    socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1year','id': '1min ' + new Date()}));
+    for (var channel in huobiHelper) {
+        if (huobiHelper[channel].symbol === 'btccny') {
+            socketBtc.send(JSON.stringify({'sub': channel,'id': huobiHelper[channel].period+' ' + new Date()}));
+            // console.log({'sub': channel,'id': huobiHelper[channel].period});
+        }
+    }
+    // socketBtc.send(JSON.stringify({'sub': 'market.btccny.kline.1min','id': '1min ' + new Date()}));
 };
 socketEth.onmessage = function keepEth(event) {
-        var raw_data = event.data;
-        var json = pako.inflate(new Uint8Array(raw_data), {to: 'string'});
-        var data = JSON.parse(json);
-        // console.log('WebSocket receive message at time: ' + new Date());
-        // console.log(data);
+    var raw_data = event.data;
+    var json = pako.inflate(new Uint8Array(raw_data), {to: 'string'});
+    var data = JSON.parse(json);
+    // console.log('WebSocket receive message at time: ' + new Date());
+    // console.log(data);
 
-        /* deal with server heartbeat */
-        if (data['ping']) {
-            // console.log('WebSocket receive ping and return pong at time: ' + new Date());
-            socketEth.send(JSON.stringify({'pong': data['ping']}));
-        }else if (!!data.ch){
+    /* deal with server heartbeat */
+    if (data['ping']) {
+        // console.log('WebSocket receive ping and return pong at time: ' + new Date());
+        socketEth.send(JSON.stringify({'pong': data['ping']}));
+    }else if (!!data.ch){
 
-            // data如下
-            //    { ch: 'market.ethcny.kline.15min',
-            //     ts: 1501749973778,
-            //     tick:
-            //     { amount: 189.3413,
-            //         open: 1506.3,
-            //         close: 1506,
-            //         high: 1507,
-            //         id: 1501749900,
-            //         count: 14,
-            //         low: 1506,
-            //         vol: 285155.58574 } }
+        // data如下
+        //    { ch: 'market.ethcny.kline.15min',
+        //     ts: 1501749973778,
+        //     tick:
+        //     { amount: 189.3413,
+        //         open: 1506.3,
+        //         close: 1506,
+        //         high: 1507,
+        //         id: 1501749900,
+        //         count: 14,
+        //         low: 1506,
+        //         vol: 285155.58574 } }
 
-            var channel = data.ch.split('.');
-            var tick = [];
-            //数据格式[毫秒数，开，高，低，收，量]
-            tick.push(parseInt(data.tick.id.toString()+'0000'));
-            tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
-            // console.log('save data, channel:'+tickHelper[channel[1]][channel[3]]+' tick : '+tick);
-            wsTick[tickHelper[channel[1]][channel[3]]] = tick;
+        if (!huobiHelper[data.ch]) return;
+        var symbol = huobiHelper[data.ch].symbol;
+        var period = huobiHelper[data.ch].period;
+        var tick = [];
+        //数据格式[毫秒数，开，高，低，收，量]
+        tick.push(parseInt(data.tick.id.toString()+'0000'));
+        tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
+        // console.log('save data, channel:'+tickHelper[[symbol][period]]+' tick : '+tick);
+        //整理并储存来自火币的更新数据
+        var pushChannelName = tickHelper[symbol][period];
+        wsTick[pushChannelName] = tick;
+        // console.log('save BTC data tick,'+tick);
+        //对应频道广播
+        if (wsPush.hasOwnProperty(pushChannelName)&&wsPush[pushChannelName].length !== 0){   //广播列表
+            console.log('广播Eth,channel:'+pushChannelName);
+            for (var i=0;i<wsPush[pushChannelName].length;i++) {
+                console.log('i='+i);
+                var client = wsPush[pushChannelName][i];
+                if (client.readyState === 1) {
+                    // if client.isBinary 判断加密
+                    client.send(JSON.stringify({
+                        'data': tick,
+                        'channel': pushChannelName
+                    }));
+                    console.log('send Eth data:'+JSON.stringify({
+                            'data': tick,
+                            'channel': pushChannelName
+                        }));
+                }else{
+                    wsPush[pushChannelName].splice(i,1);
+                }
+            }
         }
+    }
 
     };
 socketBtc.onmessage = function keepBtc(event) {
-        var raw_data = event.data;
-        var json = pako.inflate(new Uint8Array(raw_data), {to: 'string'});
-        var data = JSON.parse(json);
-        // console.log('WebSocket receive message at time: ' + new Date());
-        // console.log(data);
+    var raw_data = event.data;
+    var json = pako.inflate(new Uint8Array(raw_data), {to: 'string'});
+    var data = JSON.parse(json);
+    // console.log('WebSocket receive message at time: ' + new Date());
+    // console.log(data);
 
-        /* deal with server heartbeat */
-        if (data['ping']) {
-            // console.log('WebSocket receive ping and return pong at time: ' + new Date());
-            socketBtc.send(JSON.stringify({'pong': data['ping']}));
-        }else if (!!data.ch){
+    /* deal with server heartbeat */
+    if (data['ping']) {
+        // console.log('WebSocket receive ping and return pong at time: ' + new Date());
+        socketBtc.send(JSON.stringify({'pong': data['ping']}));
+    }else if (!!data.ch){
 
-            // data如下
-            //    { ch: 'market.ethcny.kline.15min',
-            //     ts: 1501749973778,
-            //     tick:
-            //     { amount: 189.3413,
-            //         open: 1506.3,
-            //         close: 1506,
-            //         high: 1507,
-            //         id: 1501749900,
-            //         count: 14,
-            //         low: 1506,
-            //         vol: 285155.58574 } }
+        // data如下
+        //    { ch: 'market.ethcny.kline.15min',
+        //     ts: 1501749973778,
+        //     tick:
+        //     { amount: 189.3413,
+        //         open: 1506.3,
+        //         close: 1506,
+        //         high: 1507,
+        //         id: 1501749900,
+        //         count: 14,
+        //         low: 1506,
+        //         vol: 285155.58574 } }
 
-            var channel = data.ch.split('.');
-            var tick = [];
-            //数据格式[毫秒数，开，高，低，收，量]
-            tick.push(parseInt(data.tick.id.toString()+'0000'));
-            tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
-            console.log('save data, channel:'+tickHelper[channel[1]][channel[3]]+' tick : '+tick);
-            wsTick[tickHelper[channel[1]][channel[3]]] = tick;
+        if (!huobiHelper[data.ch]) return;
+        var symbol = huobiHelper[data.ch].symbol;
+        var period = huobiHelper[data.ch].period;
+        var tick = [];
+        //数据格式[毫秒数，开，高，低，收，量]
+        tick.push(parseInt(data.tick.id.toString()+'0000'));
+        tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
+        // console.log('save data, channel:'+tickHelper[[symbol][period]]+' tick : '+tick);
+        //整理并储存来自火币的更新数据
+        var pushChannelName = tickHelper[symbol][period];
+        wsTick[pushChannelName] = tick;
+        // console.log('save BTC data tick,'+tick);
+        //对应频道广播
+        if (wsPush.hasOwnProperty(pushChannelName)&&wsPush[pushChannelName].length !== 0){   //广播列表
+            console.log('广播BTC,channel:'+pushChannelName);
+            for (var i=0;i<wsPush[pushChannelName].length;i++) {
+                console.log('i='+i);
+                var client = wsPush[pushChannelName][i];
+                if (client.readyState === 1) {
+                    // if client.isBinary 判断加密
+                    client.send(JSON.stringify({
+                        'data': tick,
+                        'channel': pushChannelName
+                    }));
+                    console.log('send BTC data:'+JSON.stringify({
+                            'data': tick,
+                            'channel': pushChannelName
+                        }));
+                }else{
+                    wsPush[pushChannelName].splice(i,1);
+                }
+            }
         }
+    }
 
-    };
+};
+
+
+
 
 socketEth.onclose = function(event) {
-    console.log('WebSocket close at time: ' + new Date());
+    console.log('WebSocket ETH close at time: ' + new Date());
 };
 socketBtc.onclose = function(event) {
-    console.log('WebSocket close at time: ' + new Date());
+    console.log('WebSocket BTC close at time: ' + new Date());
 };
 
 
@@ -183,48 +310,51 @@ const wss = new WebSocket.Server({ port: 3300 });
 
 wss.on('connection', function connection(ws) {
     ws.isAlive = true;
-    ws.on('message', function sending(message) {
-        // console.log(typeof message);
+    ws.on('message', function keeping(message) {
         var data = eval('(' + message + ')');
-        if (data.hasOwnProperty('event')){
+        // console.log('received client req:'+JSON.stringify(data));
+        //data like : {"event":"addChannel","channel":"ok_sub_spot_btc_ticker","binary":0}
+        if (data.hasOwnProperty('event')) {
             this.isAlive = true;
-            if (data.event === 'ping'){
+            if (data.event === 'ping') {
                 ws.send(JSON.stringify({'event': 'pong'}));
-                if (!!ws.channel){
-                    if (!!ws.binary) {
-                        console.log('send data to wss.client, isBinary:true');
-                        // ws.send(JSON.stringify({
-                        //     'data': data[ws.channel],
-                        //     'channel': ws.channel
-                        // }));
-                    }else {
-                        console.log('send data to wss.client, isBinary:false,data :'+JSON.stringify({
-                                'data': wsTick[ws.channel],
-                                'channel': ws.channel
-                            }));
-                        ws.send(JSON.stringify({
-                            'data': wsTick[ws.channel],
-                            'channel': ws.channel
-                        }));
+            } else if (data.event === 'addChannel') {
+                // [{"data":{"result":true,"channel":"ok_sub_spot_btc_kline_1min"},"channel":"addChannel"}]
+                ws.isBinary = data.hasOwnProperty('isBinary') ? data.isBinary : false;
+                if (data.hasOwnProperty('channel')) {
+                    if (!wsPush.hasOwnProperty(data.channel)) {
+                        wsPush[data.channel] = [];
+                    }
+                    wsPush[data.channel].push(ws);
+                }
+                ws.send(JSON.stringify([{"data": {"result": true, "channel": data.channel}, "channel": "addChannel"}]));
+            } else if (data.event === 'removeChannel') {
+                if (data.hasOwnProperty('channel')) {
+                    if (wsPush.hasOwnProperty(data.channel)) {
+                        for (var i = 0; i < wsPush[data.channel].length; i++) {
+                            if (wsPush[data.channel][i] === ws) {
+                                wsPush[data.channel].splice(i, 1);
+                                console.log('remove channel successed : channel:' + data.channel);
+                            }
+                        }
+                        ws.send(JSON.stringify([{
+                            "data": {"result": true, "channel": data.channel},
+                            "channel": "removeChannel"
+                        }]));
                     }
                 }
-            }else if (data.event === 'addChannel') {
-                // [{"data":{"result":true,"channel":"ok_sub_spot_btc_kline_1min"},"channel":"addChannel"}]
-                ws.channel = data.channel;
-                ws.send(JSON.stringify([{"data":{"result":true,"channel":data.channel},"channel":"addChannel"}]));
-            }else if (data.event === 'removeChannel') {
-                ws.channel = null;
-                ws.send(JSON.stringify([{"data":{"result":true,"channel":data.channel},"channel":"removeChannel"}]));
             }
         }
-
     });
 });
 
 //关闭失效ws客户端
 const interval = setInterval(function ping() {
     wss.clients.forEach(function each(ws) {
-        if (ws.isAlive === false) return ws.terminate();
+        if (ws.isAlive === false){
+            console.log('closed a client');
+            return ws.terminate();
+        }
         ws.isAlive = false;
         console.log('marked WSserver.client isAlive false');
         // ws.ping('', false, true);
