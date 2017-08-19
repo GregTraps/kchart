@@ -87,7 +87,7 @@ function showKLine(marketFrom,type){
 			typeSeleted = 0;
 			 typeButtons = [
 			                {type: 'hour',count:8,text: '8h'}, 
-							{type: 'day',count:1,text: '1d'}, 
+							{type: 'day',count:1,text: '1d'}
 							];
 		}
 		if(type !=1){
@@ -99,16 +99,16 @@ function showKLine(marketFrom,type){
 		var avg5Sum = 0,avg15Sum=0;
 		for (var i = 0; i < dataLength; i++) {
 			ohlc.push([
-				data[i][0], // the date
-				data[i][1], // open
-				data[i][2], // high
-				data[i][3], // low
-				data[i][4] // close
+				data[i][0]+'000', // the date
+				data[i][2], // open
+				data[i][3], // high
+				data[i][4], // low
+				data[i][5] // close
 			]);
 			
 			volume.push([
 				data[i][0], // the date
-				data[i][5] // the volume
+				data[i][1] // the volume
 			]);
 			if(type!=1 && marketFrom==0){
 				//5日均线

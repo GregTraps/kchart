@@ -200,13 +200,13 @@ socketEth.onmessage = function keepEth(event) {
         var period = huobiHelper[data.ch].period;
         var tick = [];
         //数据格式[毫秒数，开，高，低，收，量]
-        tick.push(parseInt(data.tick.id.toString()+'0000'));
-        tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
+        tick.push(parseInt(data.tick.id.toString()));
+        tick.push(data.tick.amount,data.tick.open,data.tick.high,data.tick.low,data.tick.close);
         // console.log('save data, channel:'+tickHelper[[symbol][period]]+' tick : '+tick);
         //整理并储存来自火币的更新数据
         var pushChannelName = tickHelper[symbol][period];
         wsTick[pushChannelName] = tick;
-        // console.log('save BTC data tick,'+tick);
+        console.log('save BTC data tick,'+tick);
         //对应频道广播
         if (wsPush.hasOwnProperty(pushChannelName)&&wsPush[pushChannelName].length !== 0){   //广播列表
             console.log('广播Eth,channel:'+pushChannelName);
@@ -262,8 +262,8 @@ socketBtc.onmessage = function keepBtc(event) {
         var period = huobiHelper[data.ch].period;
         var tick = [];
         //数据格式[毫秒数，开，高，低，收，量]
-        tick.push(parseInt(data.tick.id.toString()+'0000'));
-        tick.push(data.tick.open,data.tick.high,data.tick.close,data.tick.low,data.tick.amount);
+        tick.push(parseInt(data.tick.id.toString()));
+        tick.push(data.tick.amount,data.tick.open,data.tick.high,data.tick.low,data.tick.close);
         // console.log('save data, channel:'+tickHelper[[symbol][period]]+' tick : '+tick);
         //整理并储存来自火币的更新数据
         var pushChannelName = tickHelper[symbol][period];

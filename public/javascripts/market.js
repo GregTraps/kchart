@@ -354,7 +354,8 @@ var webSocket = new WebSocketUtil({
         });
 
         webSocket.addKlineCallBack(function (data) {
-            jQuery("#kline_iframe")[0].contentWindow.onPushingResponse(marketFrom, type, coinVol, pushUtil.getKlineData(data));
+            jQuery("#kline_iframe")[0].contentWindow.onPushingResponse(marketFrom, type, coinVol, data);
+            // jQuery("#kline_iframe")[0].contentWindow.onPushingResponse(marketFrom, type, coinVol, pushUtil.getKlineData(data));
         });
 
     });

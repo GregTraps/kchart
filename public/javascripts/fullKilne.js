@@ -1810,8 +1810,10 @@ var Pushing = {
         if (Pushing.state != Pushing.State.Enable)
             return;
         if (Pushing.marketFrom != marketFrom ||
-            Pushing.type != type ||
-            Pushing.coinVol != coinVol)
+            Pushing.type != type)
+        // if (Pushing.marketFrom != marketFrom ||
+        //     Pushing.type != type ||
+        //     Pushing.coinVol != coinVol)
             return;
         GLOBAL_VAR.KLineData = data;
         if (ChartManager.getInstance().getChart()._money_type == 1) {
@@ -1877,8 +1879,8 @@ var Pushing = {
             if (f != -1) {
                 if (!Pushing.PushFrom)
                     return;
-                console.log('marketString:'+ marketString+ ',marketFrom'+ Pushing.marketFrom+ ',type:'+Pushing.type +',coinVol'+ Pushing.coinVol +',f:'+f);
-                Pushing.PushFrom(marketString, Pushing.marketFrom, Pushing.type, Pushing.coinVol, f);
+                // console.log('marketString:'+ marketString+ ',marketFrom'+ Pushing.marketFrom+ ',type:'+Pushing.type +',coinVol'+ Pushing.coinVol +',f:'+f);
+                // Pushing.PushFrom(marketString, Pushing.marketFrom, Pushing.type, Pushing.coinVol, f);
                 if (org != now)
                     clear_refresh_counter();
             } else {
@@ -8701,35 +8703,36 @@ function refresh_function() {
     var lang = ChartManager.getInstance().getLanguage();
     if (refresh_counter > 3600) {
         var num = new Number(refresh_counter/3600);
-        if (lang == "en-us")  {
-            $("#chart_updated_time_text").html(num.toFixed(0)+"h");
-        } else {
+        // if (lang == "en-us")  {
+        //     $("#chart_updated_time_text").html(num.toFixed(0)+"h");
+        // } else {
             $("#chart_updated_time_text").html(num.toFixed(0)+"小时");
-        }
+        // }
     } else if (refresh_counter > 60 && refresh_counter <= 3600) {
         var num = new Number(refresh_counter/60);
-        if (lang == "en-us")  {
-            $("#chart_updated_time_text").html(num.toFixed(0)+"m");
-        } else {
+        // if (lang == "en-us")  {
+        //     $("#chart_updated_time_text").html(num.toFixed(0)+"m");
+        // } else {
             $("#chart_updated_time_text").html(num.toFixed(0)+"分钟");
-        }
+        // }
     } else if (refresh_counter <= 60) {
-        if (lang == "en-us")  {
-            $("#chart_updated_time_text").html(refresh_counter+"s");
-        } else {
+        // if (lang == "en-us")  {
+        //     $("#chart_updated_time_text").html(refresh_counter+"s");
+        // } else {
             $("#chart_updated_time_text").html(refresh_counter+"秒");
-        }
+        // }
     }
 }
 function clear_refresh_counter() {
     window.clearInterval(refresh_handler);
     refresh_counter = 0;
-    var lang = ChartManager.getInstance().getLanguage();
-    if (lang == "en-us")  {
-        $("#chart_updated_time_text").html(refresh_counter+"s");
-    } else {
-        $("#chart_updated_time_text").html(refresh_counter+"秒");
-    }
+    // var lang = ChartManager.getInstance().getLanguage();
+    // if (lang == "en-us")  {
+    //     $("#chart_updated_time_text").html(refresh_counter+"s");
+    // } else {
+    //     $("#chart_updated_time_text").html(refresh_counter+"秒");
+    // }
+    $("#chart_updated_time_text").html(refresh_counter+"秒");
     refresh_handler = setInterval(refresh_function, 1000);
 }
 var RequestData = function(showLoading) {
@@ -8780,6 +8783,8 @@ var RequestData = function(showLoading) {
                             GLOBAL_VAR.TimeOutId = setTimeout(RequestData, 2000);
                             return;
                         }
+                        console.log('clear counter!!!!!');
+                        GLOBAL_VAR.TimeOutId = setTimeout(RequestData, 5000);
                         clear_refresh_counter();
                     } catch (err) {
                         if (err == "calcInterval") {
